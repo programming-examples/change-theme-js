@@ -1,0 +1,6 @@
+/* @import 'theme.css'; */
+
+.container{
+    background: var(--background);
+    color: var(--colour);
+}

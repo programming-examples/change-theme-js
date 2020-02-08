@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="theme.css"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="change">
+    Change
+  </button>
+    <div class="container">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dicta qui corrupti sint aut nesciunt consequuntur quidem enim, fugit pariatur nobis laboriosam incidunt? Libero vel natus tempore, molestiae veniam voluptas!</p>
+    </div>
+    <script>
+      const applyTheme = theme =>{
+        let res = '';
+        Object.keys(theme).forEach(key => (res += `--${key}:${theme[key]};`));
+        return res;
+      }
+      let x = false;
+      const themes = {
+        light:{
+          background:"white",
+          colour:"black"
+        },
+        dark:{
+          background:"black",
+          colour:"white"
+        }
+      }
+      // document.body.setAttribute('style',applyTheme(themes.light));
+      document.querySelector('#change').addEventListener('click', e =>{
+        if(x){
+          document.body.setAttribute('style',applyTheme(themes.light)); 
+          x = false;
+        }
+        else{
+          document.body.setAttribute('style',applyTheme(themes.dark));
+          x = true;
+        } 
+      });
+  </script>
+</body>
+</html>
